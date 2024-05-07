@@ -2,7 +2,10 @@ module github.com/ThisJohan/proglog
 
 go 1.22.1
 
-require github.com/labstack/echo v3.3.10+incompatible
+require (
+	github.com/labstack/echo v3.3.10+incompatible
+	google.golang.org/protobuf v1.34.1
+)
 
 require (
 	github.com/labstack/gommon v0.4.2 // indirect
