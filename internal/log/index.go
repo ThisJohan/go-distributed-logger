@@ -1,7 +1,6 @@
 package log
 
 import (
-	"fmt"
 	"io"
 	"os"
 
@@ -63,7 +62,6 @@ func (i *index) Read(in int64) (out uint32, pos uint64, err error) {
 	}
 	if in == -1 {
 		out = uint32((i.size / entWidth) - 1)
-		fmt.Println("hi", i.size, entWidth, out)
 	} else {
 		out = uint32(in)
 	}
@@ -84,7 +82,6 @@ func (i *index) Write(off uint32, pos uint64) error {
 	enc.PutUint32(i.mmap[i.size:i.size+offWidth], off)
 	enc.PutUint64(i.mmap[i.size+offWidth:i.size+entWidth], pos)
 	i.size += uint64(entWidth)
-	fmt.Println("size", i.size)
 	return nil
 }
 
