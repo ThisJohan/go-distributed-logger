@@ -33,6 +33,9 @@ func TestSegment(t *testing.T) {
 	require.Equal(t, io.EOF, err)
 	require.True(t, s.IsMaxed())
 
+	err = s.Close()
+	require.NoError(t, err)
+
 	c.Segment.MaxStoreBytes = uint64(len(want.Value) * 3)
 	c.Segment.MaxIndexBytes = 1024
 
